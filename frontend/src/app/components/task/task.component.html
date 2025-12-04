@@ -1,0 +1,49 @@
+<div class="task-container">
+    <div class="top-bar">
+    <button class="logout-btn" (click)="logout()">Logout</button>
+  </div>
+
+  <h2>My Tasks</h2>
+
+  <!-- Add Task Form -->
+  <div class="task-form">
+    <input type="text" placeholder="Task Title" [(ngModel)]="taskForm.title">
+    <input type="text" placeholder="Task Description" [(ngModel)]="taskForm.description">
+    <button class="add-btn" (click)="addTask()">Add Task</button>
+  </div>
+
+  <!-- Filter Buttons -->
+  <div class="filters">
+    <button (click)="filterTasks('all')" [class.active]="filterStatus === 'all'">All</button>
+    <button (click)="filterTasks('pending')" [class.active]="filterStatus === 'pending'">Pending</button>
+    <button (click)="filterTasks('completed')" [class.active]="filterStatus === 'completed'">Completed</button>
+  </div>
+
+  <!-- Task List -->
+  <div class="tasks-grid">
+    <div *ngFor="let task of filteredTasks" class="task-card">
+      
+      <!-- Display Mode -->
+      <div *ngIf="selectedTask?._id !== task._id">
+        <h3 [class.completed]="task.status === 'completed'">{{ task.title }}</h3>
+        <p>{{ task.description }}</p>
+        <div class="task-actions">
+          <button class="edit" (click)="editTask(task)">Edit</button>
+          <button class="delete" (click)="deleteTask(task._id)">Delete</button>
+          <button class="complete" *ngIf="task.status !== 'completed'" (click)="markCompleted(task)">Mark Done</button>
+        </div>
+      </div>
+
+      <!-- Edit Mode -->
+      <div *ngIf="selectedTask?._id === task._id">
+        <input [(ngModel)]="selectedTask.title" placeholder="Task Title">
+        <input [(ngModel)]="selectedTask.description" placeholder="Task Description">
+        <div class="task-actions">
+          <button class="update" (click)="updateTask()">Update</button>
+          <button class="cancel" (click)="selectedTask = null">Cancel</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
