@@ -14,6 +14,10 @@ router.post("/register", async (req, res) => {
   res.json({ message: "User registered" });
 });
 
+router.get("/",async (req,res)=>{
+ return res.status(400).json({ message: "get hitted" });
+})
+
 router.post("/login", async (req, res) => {
   const { email, password } = req.body;
   let user = await User.findOne({ email });
