@@ -20,7 +20,7 @@ credentials:true
 app.use(express.json());
 
 app.get('/api',(req,res)=>{
-res.send('Api is working ,ci cd integration implemented tested');
+res.send('Api is working , new ci cd integration ');
 });
 
 app.use('/api/auth', authRoutes);
