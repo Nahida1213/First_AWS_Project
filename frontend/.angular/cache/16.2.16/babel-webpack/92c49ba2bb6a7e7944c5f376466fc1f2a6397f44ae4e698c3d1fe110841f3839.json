@@ -1,1 +1,0 @@
-{"ast":null,"code":"export const environment = {\n  production: true,\n  API_URL: \"http://15.207.254.225:5000/api\"\n  // API_URL: \"https://taskmanagment/api\"\n};","map":null,"metadata":{},"sourceType":"module","externalDependencies":[]}
