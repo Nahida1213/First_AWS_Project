@@ -20,7 +20,7 @@ credentials:true
 app.use(express.json());
 
 app.get('/api',(req,res)=>{
-res.send('Api is working new  shh key,test testttttttttttttt ');
+res.send('Api is working new  using  cicd ');
 });
 
 app.use('/api/auth', authRoutes);
