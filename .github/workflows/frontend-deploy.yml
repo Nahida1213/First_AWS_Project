@@ -35,4 +35,4 @@ jobs:
 
       - name: Deploy to S3
         run: |
-          aws s3 sync frontend/build s3://taskfrontend.shop --delete
+          aws s3 sync frontend/dist s3://taskfrontend.shop --delete
