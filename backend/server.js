@@ -9,13 +9,10 @@ const taskRoutes = require('./routes/taskRoutes');
 
 
 const app = express();
-app.use(cors({origin:[
-"http://taskfrontend.shop.s3-website.ap-south-1.amazonaws.com/",
-"http://taskfrontend.shop"
-],
-credentials:true
+app.use(cors({
+  origin: '*', 
+  credentials: true
 }));
-
 
 app.use(express.json());
 
